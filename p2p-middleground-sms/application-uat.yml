@@ -1,33 +1,15 @@
-# MYSQL DATABASE 数据库配置application
 spring:
   profiles:
-    active: uat
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://10.13.4.22:3306/lljr
-    username: root
-    password: oracle
-    dbcp2:
-      min-idle: 5
-      initial-size: 5
-      max-total: 5
-      max-wait-millis: 200
+    active:
+    - dev
 
-###############################################################################
-## redis 配置
-  redis:
-    host: 10.13.4.30
-    port: 6379
-    password: IXYtJKtWrZnYTtoa
-    database: 0
-    pool.max-active: 8
-    pool.max-wait: 6000
-    pool.max-idle: 8
-    pool.min-idle: 0
-    timeout: 0
-#    pool:
-#      max-active: 50
-#      max-idle: 5
-#      min-idle: 0
-#      max-wait: 10000ms
+server:
+  port: 8201
+spring:
+  profiles: uat
+  application:
+    name: p2p-middleground-sms
+eureka:
+  client:
+    service-url:
+      defaultZone: localhost://7001/eureka/
